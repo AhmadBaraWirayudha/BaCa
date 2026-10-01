@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff1f5">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="description" content="Our first year together — a little pink time capsule.">
+<title>Our First Year — For Cayangku</title>
+<style>
+:root{
+  --bg:#fff4f7; --bg2:#ffe8ef; --card:#fffafc; --card2:#fff0f5;
+  --pink:#e982a2; --pink2:#f4a9bf; --deep:#a9486e; --wine:#7b3653;
+  --rose:#fff8fa; --ink:#4b2d39; --muted:#866674; --line:#f1ceda;
+  --shadow:0 18px 48px rgba(164,75,111,.13); --ease:cubic-bezier(.22,1,.36,1);
+  --safe-top:env(safe-area-inset-top,0px); --safe-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg);scroll-behavior:auto}
+body{margin:0;min-height:100vh;min-height:100dvh;background:
+ radial-gradient(circle at 12% 0%,rgba(255,255,255,.95),transparent 30%),
+ radial-gradient(circle at 92% 25%,rgba(255,217,228,.75),transparent 33%),
+ linear-gradient(180deg,var(--bg),#fff8fa 55%,#ffeef4);color:var(--ink);
+ font-family:Georgia,'Times New Roman',serif;overflow-x:hidden;overscroll-behavior-x:none}
+button{font:inherit;touch-action:manipulation}
+button:focus-visible{outline:3px solid #ef9db7;outline-offset:3px}
+.scene{position:relative;min-height:100dvh;padding:calc(14px + var(--safe-top)) 12px calc(18px + var(--safe-bottom));display:grid;place-items:center}
+.scene::before,.scene::after{content:"";position:fixed;pointer-events:none;border-radius:50%;filter:blur(0);z-index:0}
+.scene::before{width:220px;height:220px;right:-100px;top:18%;background:rgba(247,184,204,.24)}
+.scene::after{width:180px;height:180px;left:-90px;bottom:12%;background:rgba(255,214,227,.42)}
+.card{width:min(1040px,100%);position:relative;background:rgba(255,250,252,.96);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);overflow:hidden;z-index:1}
+.card::before{content:"";position:absolute;inset:10px;border:1px solid rgba(233,130,162,.16);border-radius:22px;pointer-events:none}
+.view{display:none;padding:clamp(28px,5vw,60px);position:relative;z-index:1}.view.active{display:block}
+.kicker{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--deep);margin-bottom:12px;font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-weight:700}
+.title{font-size:clamp(2.6rem,8vw,5.5rem);line-height:.92;margin:0;letter-spacing:-.045em;color:var(--wine)}
+.subtitle{max-width:650px;font-size:clamp(1rem,2vw,1.22rem);line-height:1.75;color:#6c4a58;margin:23px 0 30px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.cta,.ghost,.music,.leaf-btn,.nav-btn{min-height:48px}
+.cta{border:0;border-radius:999px;padding:14px 21px;background:linear-gradient(180deg,#f29db7,#df7598);color:#fff;cursor:pointer;box-shadow:0 10px 22px rgba(223,117,152,.22);font-weight:700}
+.ghost{border:1px solid #e5b5c5;border-radius:999px;padding:12px 18px;background:#fff;color:var(--wine);cursor:pointer}
+.hero{min-height:min(730px,calc(100dvh - 40px));display:grid;grid-template-columns:1fr .9fr;align-items:center;gap:20px}
+.hero-copy{padding:12px 0}.hero-art{min-height:470px;display:grid;place-items:center;position:relative}
+.moon{position:absolute;right:8%;top:10%;width:106px;height:106px;border-radius:50%;background:#ffdce7;box-shadow:0 0 35px rgba(239,157,183,.2)}
+.tree{position:relative;width:min(410px,78vw);height:420px}
+.trunk{position:absolute;bottom:5%;left:48%;width:12%;height:52%;background:linear-gradient(90deg,#8a5c60,#b07d78 50%,#7b4a52);border-radius:45% 45% 24% 24%/14% 14% 6% 6%}
+.branch{position:absolute;background:#9b6568;border-radius:999px;transform-origin:left center}.b1{width:50%;height:14px;left:48%;top:33%;transform:rotate(-27deg)}.b2{width:42%;height:12px;left:40%;top:43%;transform:rotate(22deg)}.b3{width:30%;height:9px;left:24%;top:27%;transform:rotate(-10deg)}
+.canopy{position:absolute;inset:2% 0 34%;border-radius:48% 52% 44% 50%;background:
+ radial-gradient(circle at 30% 22%,#f8b8cb 0 8%,transparent 9%),
+ radial-gradient(circle at 72% 22%,#f3a6be 0 13%,transparent 14%),
+ radial-gradient(circle at 48% 48%,#e987a7 0 42%,#d96f94 43% 68%,transparent 69%),
+ radial-gradient(circle at 19% 64%,#f3a6be 0 17%,transparent 18%),
+ radial-gradient(circle at 83% 62%,#efb0c4 0 12%,transparent 13%);
+ box-shadow:0 25px 30px rgba(164,75,111,.10)}
+.capsule{position:absolute;bottom:1%;left:50%;transform:translateX(-50%);width:236px;height:126px;border:2px solid #c76686;background:linear-gradient(180deg,#ef9bb4,#dc7095);border-radius:34px 34px 16px 16px;box-shadow:0 16px 28px rgba(164,75,111,.16),inset 0 3px 0 rgba(255,255,255,.28)}
+.capsule::before{content:"OUR FIRST YEAR";position:absolute;inset:24px 20px auto;text-align:center;font-size:12px;letter-spacing:.24em;color:#fff}.capsule::after{content:"♡";position:absolute;right:18px;top:14px;color:#fff;font-size:18px}
+.section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:20px}.section-head h2{margin:0;font-size:clamp(1.7rem,4vw,2.6rem);color:var(--wine)}
+.count{font:600 .86rem system-ui,-apple-system,Segoe UI,sans-serif;color:var(--muted)}
+.progress{height:8px;background:#f7dfe7;border-radius:999px;overflow:hidden;margin:17px 0 27px}.progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#f2a0b9,#d9658b);transition:width .3s ease}
+.leaves{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:28px}
+.leaf-btn{aspect-ratio:1/1;border:0;position:relative;cursor:pointer;background:transparent;color:var(--wine);padding:0}
+.leaf-shape{position:absolute;inset:10%;border-radius:100% 0 100% 0;background:linear-gradient(145deg,#f5b8cc,#e47b9e 65%,#c95e84);transform:rotate(-28deg);box-shadow:inset -6px -7px 0 rgba(155,64,100,.11),0 8px 16px rgba(164,75,111,.10)}
+.leaf-shape::after{content:"";position:absolute;left:50%;top:6%;height:88%;width:2px;background:rgba(255,255,255,.42);transform:rotate(38deg)}
+.leaf-btn span{position:relative;z-index:1;display:block;font:700 .94rem Georgia;color:#6e304b;transform:translateY(2px)}
+.leaf-btn.opened .leaf-shape{opacity:.48}.leaf-btn.opened span::after{content:" ✓";color:#b65076}
+.memory-card{display:grid;grid-template-columns:minmax(0,1.05fr) .95fr;gap:26px;align-items:center;background:var(--card2);border:1px solid #f2cfd9;border-radius:24px;padding:14px}
+.photo-frame{background:#fff;padding:10px 10px 15px;border-radius:5px;box-shadow:0 14px 30px rgba(164,75,111,.13)}
+.photo-frame img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;background:#fff;cursor:zoom-in}
+.photo-meta{padding:10px 7px}.memory-no{color:var(--deep);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-weight:700}.memory-meta-title{font-size:clamp(1.8rem,4vw,3rem);line-height:1;margin:10px 0 14px;color:var(--wine)}.memory-copy{color:#6c4a58;line-height:1.7;font-size:1rem}.nav-row{display:flex;gap:9px;margin-top:18px;flex-wrap:wrap}.tiny{font:400 .82rem/1.55 system-ui,-apple-system,Segoe UI,sans-serif;color:#8d6c79}
+.ending{min-height:650px;display:grid;place-items:center;text-align:center}.ending-inner{max-width:740px}.heart{font-size:3.4rem;color:#e5799c;margin-bottom:12px}.love-note{background:#fff;padding:28px clamp(20px,5vw,46px);border:1px solid #efcad6;border-radius:18px;box-shadow:0 14px 28px rgba(164,75,111,.08);text-align:left;line-height:1.86;margin:24px auto 18px;max-width:720px;color:#5d3b4a}
+.love-note p{position:relative;margin:0 0 14px}.love-note p:last-child{margin-bottom:0}.signature{text-align:right;font-style:italic;color:#9a526e}
+.modal{position:fixed;inset:0;background:rgba(68,31,46,.84);display:none;place-items:center;padding:calc(12px + var(--safe-top)) 12px calc(12px + var(--safe-bottom));z-index:20}
+.modal.show{display:grid}.modal-box{max-width:1000px;width:100%;max-height:calc(100dvh - 24px - var(--safe-top) - var(--safe-bottom));position:relative;background:#fff7fa;border:1px solid #f0bfd0;border-radius:18px;padding:10px;box-shadow:0 20px 50px rgba(49,17,30,.3)}
+.modal-box img{display:block;width:100%;max-height:calc(100dvh - 72px - var(--safe-top) - var(--safe-bottom));object-fit:contain;background:#fff}
+.modal-close{position:absolute;right:7px;top:7px;width:46px;height:46px;border-radius:50%;border:1px solid #e6afc3;background:#fff;color:var(--wine);cursor:pointer;font-size:22px;z-index:2}
+.music{position:fixed;right:calc(13px + env(safe-area-inset-right,0px));bottom:calc(13px + var(--safe-bottom));z-index:30;width:52px;height:52px;border-radius:50%;border:1px solid #e1a6bb;background:#fff8fb;color:var(--wine);cursor:pointer;box-shadow:0 10px 20px rgba(164,75,111,.12)}.music.on{background:#ef91ad;color:#fff;border-color:#df7d9c}
+.fade-in{animation:fadeIn .28s ease both}@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (hover:hover) and (pointer:fine){.leaf-btn:hover{transform:translateY(-3px) rotate(-1deg)}.cta:hover{transform:translateY(-1px)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:780px){
+ .scene{padding-left:8px;padding-right:8px}.card{border-radius:22px}.hero{grid-template-columns:1fr;min-height:auto}.hero-art{min-height:330px}.tree{transform:scale(.76)}
+ .leaves{grid-template-columns:repeat(4,1fr);gap:8px}.leaf-btn span{font-size:.8rem}.memory-card{grid-template-columns:1fr}.memory-card .photo-frame img{max-height:62dvh}.view{padding:34px 18px}.section-head{align-items:start;flex-direction:column}.love-note{font-size:.98rem}
+}
+@media(max-width:420px){.title{font-size:clamp(2.45rem,14vw,4rem)}.subtitle{line-height:1.65}.hero-art{min-height:285px}.tree{transform:scale(.64)}.leaves{gap:5px}.leaf-btn span{font-size:.72rem}.actions>*{width:100%}.cta,.ghost{width:100%}.memory-meta-title{font-size:2rem}.modal-box{padding:7px}.modal-close{width:44px;height:44px}}
+</style>
+</head>
+<body>
+<button class="music" id="sound" aria-label="Toggle music" title="Music">♫</button>
+<main class="scene">
+<div class="card">
+<section class="view active" id="opening">
+  <div class="hero">
+    <div class="hero-copy">
+      <div class="kicker">A tiny pink time capsule</div>
+      <h1 class="title">Our First<br>Year.</h1>
+      <p class="subtitle">Some memories disappear into ordinary days. These ones deserve a little place of their own.<br><br>There are <strong id="heroCount">31</strong> leaves inside. Open them one by one.</p>
+      <div class="actions"><button class="cta" id="begin">Open the time capsule</button><button class="ghost" id="skipToLeaves">See the leaves</button></div>
+      <div class="tiny" style="margin-top:16px">Made for a small screen, a soft heart, and one very special person.</div>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="moon"></div><div class="tree"><div class="canopy"></div><div class="branch b1"></div><div class="branch b2"></div><div class="branch b3"></div><div class="trunk"></div><div class="capsule"></div></div></div>
+  </div>
+</section>
+<section class="view" id="leaf-view">
+  <div class="section-head"><div><div class="kicker">The memory tree</div><h2>Choose a leaf.</h2></div><div class="count"><strong id="countOpen">0</strong> / <span id="countTotal">31</span> opened</div></div>
+  <p class="tiny">Tap any leaf. The photo loads only when you open it, so the page stays smooth on mobile.</p>
+  <div class="progress"><span id="progressBar"></span></div>
+  <div class="leaves" id="leaves"></div>
+  <div class="memory-card" id="memoryCard" hidden>
+    <div class="photo-frame"><img id="memoryImage" src="" alt="Memory photograph" decoding="async"></div>
+    <div class="photo-meta"><div class="memory-no" id="memoryNo"></div><h3 class="memory-meta-title" id="memoryTitle"></h3><p class="memory-copy">A small piece of a year worth keeping.</p><div class="nav-row"><button class="cta" id="nextMemory">Open another leaf</button><button class="ghost" id="closeMemory">Back to all leaves</button></div></div>
+  </div>
+</section>
+<section class="view ending" id="ending">
+  <div class="ending-inner">
+    <div class="heart">♡</div><div class="kicker">Time capsule complete</div><h2 class="title" style="font-size:clamp(2.5rem,7vw,5rem)">31 little memories.<br>One whole year.</h2>
+    <div class="love-note">
+      <p>cayangku maaf yaah telat, soalnya kita terpaksa sibuk dengan urusan kita, inipun ndaa sesempurna apaah yang acuuw maww, love ou more and always cayangkuwww, jangan merasa sendiri yaah cayang ada acuuw disini oyeyy?</p>
+      <p class="signature">For my cayangkuwww.</p>
+    </div>
+    <button class="cta" id="restart">Open the capsule again</button>
+  </div>
+</section>
+</div>
+</main>
+<div class="modal" id="modal" aria-hidden="true"><div class="modal-box"><button class="modal-close" id="modalClose" aria-label="Close photo">×</button><img id="modalImage" src="" alt="Expanded memory" decoding="async"></div></div>
+<script>
+const memories = [{"index": 1, "src": "assets/photos/01.webp", "label": "Memory 01"}, {"index": 2, "src": "assets/photos/02.webp", "label": "Memory 02"}, {"index": 3, "src": "assets/photos/03.webp", "label": "Memory 03"}, {"index": 4, "src": "assets/photos/04.webp", "label": "Memory 04"}, {"index": 5, "src": "assets/photos/05.webp", "label": "Memory 05"}, {"index": 6, "src": "assets/photos/06.webp", "label": "Memory 06"}, {"index": 7, "src": "assets/photos/07.webp", "label": "Memory 07"}, {"index": 8, "src": "assets/photos/08.webp", "label": "Memory 08"}, {"index": 9, "src": "assets/photos/09.webp", "label": "Memory 09"}, {"index": 10, "src": "assets/photos/10.webp", "label": "Memory 10"}, {"index": 11, "src": "assets/photos/11.webp", "label": "Memory 11"}, {"index": 12, "src": "assets/photos/12.webp", "label": "Memory 12"}, {"index": 13, "src": "assets/photos/13.webp", "label": "Memory 13"}, {"index": 14, "src": "assets/photos/14.webp", "label": "Memory 14"}, {"index": 15, "src": "assets/photos/15.webp", "label": "Memory 15"}, {"index": 16, "src": "assets/photos/16.webp", "label": "Memory 16"}, {"index": 17, "src": "assets/photos/17.webp", "label": "Memory 17"}, {"index": 18, "src": "assets/photos/18.webp", "label": "Memory 18"}, {"index": 19, "src": "assets/photos/19.webp", "label": "Memory 19"}, {"index": 20, "src": "assets/photos/20.webp", "label": "Memory 20"}, {"index": 21, "src": "assets/photos/21.webp", "label": "Memory 21"}, {"index": 22, "src": "assets/photos/22.webp", "label": "Memory 22"}, {"index": 23, "src": "assets/photos/23.webp", "label": "Memory 23"}, {"index": 24, "src": "assets/photos/24.webp", "label": "Memory 24"}, {"index": 25, "src": "assets/photos/25.webp", "label": "Memory 25"}, {"index": 26, "src": "assets/photos/26.webp", "label": "Memory 26"}, {"index": 27, "src": "assets/photos/27.webp", "label": "Memory 27"}, {"index": 28, "src": "assets/photos/28.webp", "label": "Memory 28"}, {"index": 29, "src": "assets/photos/29.webp", "label": "Memory 29"}, {"index": 30, "src": "assets/photos/30.webp", "label": "Memory 30"}, {"index": 31, "src": "assets/photos/31.webp", "label": "Memory 31"}];
+const state={opened:new Set(),current:0,music:false};
+const $=id=>document.getElementById(id);
+const views={opening:$('opening'),leaves:$('leaf-view'),ending:$('ending')};
+const audio=new Audio('assets/music.mp3'); audio.loop=true; audio.preload='none';
+const STORAGE='our-first-year-opened-v2';
+try{const saved=JSON.parse(localStorage.getItem(STORAGE)||'[]'); saved.forEach(n=>state.opened.add(Number(n)));}catch(e){}
+$('countTotal').textContent=memories.length; $('heroCount').textContent=memories.length;
+function show(id){Object.values(views).forEach(v=>v.classList.remove('active'));views[id].classList.add('active');window.scrollTo(0,0);}
+function startMusic(){if(state.music)return;audio.play().then(()=>{state.music=true;$('sound').classList.add('on');}).catch(()=>{});}
+function toggleMusic(){if(state.music){audio.pause();state.music=false;$('sound').classList.remove('on');}else startMusic();}
+$('sound').addEventListener('click',toggleMusic);
+function save(){try{localStorage.setItem(STORAGE,JSON.stringify([...state.opened]));}catch(e){}}
+function renderLeaves(){const root=$('leaves');root.textContent='';const frag=document.createDocumentFragment();memories.forEach(m=>{const b=document.createElement('button');b.className='leaf-btn'+(state.opened.has(m.index)?' opened':'');b.setAttribute('aria-label',`Open memory ${m.index}`);b.innerHTML=`<div class="leaf-shape"></div><span>${String(m.index).padStart(2,'0')}</span>`;b.addEventListener('click',()=>openMemory(m.index),{passive:true});frag.appendChild(b);});root.appendChild(frag);$('countOpen').textContent=state.opened.size;$('progressBar').style.width=(state.opened.size/memories.length*100)+'%';}
+function preloadAdjacent(index){for(const x of [index-1,index+1]){if(x>=1&&x<=memories.length){const im=new Image();im.decoding='async';im.src=memories[x-1].src;}}}
+function openMemory(index){startMusic();const m=memories[index-1];if(!m)return;state.current=index;state.opened.add(index);save();$('memoryCard').hidden=false;$('memoryCard').classList.remove('fade-in');void $('memoryCard').offsetWidth;$('memoryCard').classList.add('fade-in');const img=$('memoryImage');img.src=m.src;img.alt=`Memory ${String(index).padStart(2,'0')}`;$('memoryNo').textContent=`Memory ${String(index).padStart(2,'0')} · leaf ${index} of ${memories.length}`;$('memoryTitle').textContent=m.label;preloadAdjacent(index);renderLeaves();$('memoryCard').scrollIntoView({behavior:'auto',block:'center'});}
+function nextUnopened(){const n=memories.find(m=>!state.opened.has(m.index));return n?n.index:memories[0].index;}
+$('begin').addEventListener('click',()=>{startMusic();show('leaves');renderLeaves();setTimeout(()=>openMemory(nextUnopened()),80)});
+$('skipToLeaves').addEventListener('click',()=>{show('leaves');renderLeaves();});
+$('closeMemory').addEventListener('click',()=>{$('memoryCard').hidden=true;$('leaves').scrollIntoView({behavior:'auto',block:'start'});});
+$('nextMemory').addEventListener('click',()=>{const remaining=memories.filter(m=>!state.opened.has(m.index));if(remaining.length===0){show('ending');return;}openMemory(remaining[0].index);});
+$('restart').addEventListener('click',()=>{state.opened.clear();state.current=0;save();$('memoryCard').hidden=true;show('opening');});
+const modal=$('modal');
+$('memoryImage').addEventListener('click',()=>{if(!$('memoryImage').src)return;modal.classList.add('show');modal.setAttribute('aria-hidden','false');$('modalImage').src=$('memoryImage').src;});
+function closeModal(){modal.classList.remove('show');modal.setAttribute('aria-hidden','true');$('modalImage').src='';}
+$('modalClose').addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();if(modal.classList.contains('show')){if(e.key==='ArrowRight')openMemory(Math.min(memories.length,state.current+1));if(e.key==='ArrowLeft')openMemory(Math.max(1,state.current-1));}});
+renderLeaves();
+</script>
+</body>
+</html>
